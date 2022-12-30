@@ -26,6 +26,7 @@ class Dotty
         if ($data instanceof Arrayable) {
             return new self($data->toArray());
         }
+
         return new self($data);
     }
 

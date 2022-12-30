@@ -8,7 +8,7 @@ class DottyException extends \RuntimeException
 {
     private readonly array $context;
 
-    public function __construct(string $message = "", array $context = [], ?\Throwable $previous = null)
+    public function __construct(string $message = '', array $context = [], ?\Throwable $previous = null)
     {
         parent::__construct($message, 0, $previous);
         $this->context = $context;
