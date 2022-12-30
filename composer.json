@@ -1,0 +1,38 @@
+{
+    "name": "snapserv/laravel-dotty",
+    "description": "Dotty allows type-safe access to foreign nested data structures with static type hinting support",
+    "type": "library",
+    "homepage": "https://github.com/snapserv/laravel-dotty",
+    "license": "MIT",
+    "require": {
+        "php": "^8.1",
+        "illuminate/support": "^8 | ^9",
+        "illuminate/http": "^9.45"
+    },
+    "require-dev": {
+        "vimeo/psalm": "^5.4"
+    },
+    "autoload": {
+        "psr-4": {
+            "SnapServ\\Dotty\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Pascal Mathis",
+            "email": "dev@ppmathis.com"
+        }
+    ],
+    "extra": {
+        "laravel": {
+            "providers": [
+                "SnapServ\\Dotty\\DottyServiceProvider"
+            ],
+            "aliases": {
+                "Dotty": "SnapServ\\Dotty\\Dotty"
+            }
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
