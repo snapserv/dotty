@@ -30,6 +30,9 @@ class Dotty
         return new self($data);
     }
 
+    /**
+     * @throws DottyException
+     */
     public function sub(string|int $key): self
     {
         if (!$this->has($key)) {

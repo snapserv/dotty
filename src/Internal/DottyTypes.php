@@ -19,6 +19,7 @@ trait DottyTypes
      * @psalm-param TDefault $default
      * @psalm-param TRequired $required
      * @psalm-return (TRequired is true ? bool : (TDefault is null ? bool|null : bool))
+     * @throws DottyException
      */
     public function bool(string|int $key, bool|\Closure|null $default = null, bool $required = true): ?bool
     {
@@ -50,6 +51,7 @@ trait DottyTypes
      * @param  array-key  $key
      * @param  bool|\Closure():bool|null  $default
      * @return bool
+     * @throws DottyException
      */
     public function requireBool(string|int $key, bool|\Closure|null $default = null): bool
     {
@@ -66,6 +68,7 @@ trait DottyTypes
      * @psalm-param TDefault $default
      * @psalm-param TRequired $required
      * @psalm-return (TRequired is true ? int : (TDefault is null ? int|null : int))
+     * @throws DottyException
      */
     public function int(string|int $key, int|\Closure|null $default = null, bool $required = true): ?int
     {
@@ -97,6 +100,7 @@ trait DottyTypes
      * @param  array-key  $key
      * @param  int|\Closure():int|null  $default
      * @return int
+     * @throws DottyException
      */
     public function requireInt(string|int $key, int|\Closure|null $default = null): int
     {
@@ -113,6 +117,7 @@ trait DottyTypes
      * @psalm-param TDefault $default
      * @psalm-param TRequired $required
      * @psalm-return (TRequired is true ? float : (TDefault is null ? float|null : float))
+     * @throws DottyException
      */
     public function float(string|int $key, float|\Closure|null $default = null, bool $required = true): ?float
     {
@@ -144,6 +149,7 @@ trait DottyTypes
      * @param  array-key  $key
      * @param  float|\Closure():float|null  $default
      * @return float
+     * @throws DottyException
      */
     public function requireFloat(string|int $key, float|\Closure|null $default = null): float
     {
@@ -160,6 +166,7 @@ trait DottyTypes
      * @psalm-param TDefault $default
      * @psalm-param TRequired $required
      * @psalm-return (TRequired is true ? string : (TDefault is null ? string|null : string))
+     * @throws DottyException
      */
     public function string(string|int $key, string|\Closure|null $default = null, bool $required = true): ?string
     {
@@ -191,6 +198,7 @@ trait DottyTypes
      * @param  array-key  $key
      * @param  string|\Closure():string|null  $default
      * @return string
+     * @throws DottyException
      */
     public function requireString(string|int $key, string|\Closure|null $default = null): string
     {
@@ -207,6 +215,7 @@ trait DottyTypes
      * @psalm-param TDefault $default
      * @psalm-param TRequired $required
      * @psalm-return (TRequired is true ? array : (TDefault is null ? array|null : array))
+     * @throws DottyException
      */
     public function array(string|int $key, array|\Closure|null $default = null, bool $required = true): ?array
     {
@@ -238,6 +247,7 @@ trait DottyTypes
      * @param  array-key  $key
      * @param  array|\Closure():array|null  $default
      * @return array
+     * @throws DottyException
      */
     public function requireArray(string|int $key, array|\Closure|null $default = null): array
     {

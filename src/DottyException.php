@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace SnapServ\Dotty;
 
-class DottyException extends \RuntimeException
+class DottyException extends \Exception
 {
     private readonly array $context;
 

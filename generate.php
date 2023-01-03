@@ -41,6 +41,7 @@ const DOTTY_TYPE_HELPER_FN = <<<'EOF'
      * @psalm-param TDefault $default
      * @psalm-param TRequired $required
      * @psalm-return (TRequired is true ? {type} : (TDefault is null ? {type}|null : {type}))
+     * @throws DottyException
      */
     public function {type}(string|int $key, {type}|\Closure|null $default = null, bool $required = true): ?{type}
     {
@@ -76,6 +77,7 @@ const DOTTY_TYPE_REQUIRE_FN = <<<'EOF'
      * @param  array-key  $key
      * @param  {type}|\Closure():{type}|null  $default
      * @return {type}
+     * @throws DottyException
      */
     public function require{typeTitle}(string|int $key, {type}|\Closure|null $default = null): {type}
     {
@@ -93,20 +95,20 @@ function processTemplate(string $template, ?array $type = null, int $indentDepth
     }
 
     $indent = str_repeat(' ', $indentDepth);
-    $template = $indent.str_replace("\n", "\n{$indent}", $template);
+    $template = $indent . str_replace("\n", "\n{$indent}", $template);
 
     return preg_replace('/[ \t]*$/m', '', $template);
 }
 
-$output = processTemplate(DOTTY_HEADER)."\n";
+$output = processTemplate(DOTTY_HEADER) . "\n";
 foreach (DOTTY_TYPES as $key => $type) {
-    $output .= processTemplate(DOTTY_TYPE_HELPER_FN, $type, 4)."\n\n";
-    $output .= processTemplate(DOTTY_TYPE_GET_FN, $type, 4)."\n\n";
-    $output .= processTemplate(DOTTY_TYPE_REQUIRE_FN, $type, 4)."\n";
+    $output .= processTemplate(DOTTY_TYPE_HELPER_FN, $type, 4) . "\n\n";
+    $output .= processTemplate(DOTTY_TYPE_GET_FN, $type, 4) . "\n\n";
+    $output .= processTemplate(DOTTY_TYPE_REQUIRE_FN, $type, 4) . "\n";
     if ($key !== array_key_last(DOTTY_TYPES)) {
         $output .= "\n";
     }
 }
-$output .= processTemplate(DOTTY_FOOTER)."\n";
+$output .= processTemplate(DOTTY_FOOTER) . "\n";
 
 file_put_contents('src/Internal/DottyTypes.php', $output);
