@@ -91,8 +91,8 @@ trait DottyTypes
         $value = Arr::get($this->data, $key);
 
         /** @var int|null */
-        return filter_var($value, FILTER_VALIDATE_INT)
-            ? (int)$value
+        return filter_var($value, FILTER_VALIDATE_INT, FILTER_NULL_ON_FAILURE) !== null
+            ? filter_var($value, FILTER_VALIDATE_INT)
             : value($default);
     }
 

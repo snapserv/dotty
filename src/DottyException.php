@@ -27,9 +27,9 @@ class DottyException extends \Exception
         ]);
     }
 
-    public static function illegalType(Dotty $instance, string $expected, string|int $key, mixed $value): self
+    public static function invalidType(Dotty $instance, string $expected, string|int $key, mixed $value): self
     {
-        return new self("illegal type for [{$key}], expected [{$expected}]", [
+        return new self("Invalid type for [{$key}], expected [{$expected}]", [
             'instance' => $instance,
             'key' => $key,
             'value' => $value,
